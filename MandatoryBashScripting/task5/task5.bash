@@ -12,7 +12,7 @@ echo "We'll ping all IPs in the range $ipaddr.0 to $ipaddr.255, including $ipadd
 
 for ip in {0..255} # Ping every IP in the range 0 - 255
 do
-	fping -c1 -t400 $ipaddr.$ip 2>/dev/null 1>/dev/null # Using fping with 1 ping per address and 150ms timeout
+	fping -c1 -t150 $ipaddr.$ip 2>/dev/null 1>/dev/null # Using fping with 1 ping per address and 150ms timeout
 	if [ "$?" = 0 ] # Response was 0, which means reachable
 	then
 		echo "$ipaddr.$ip is alive!"
